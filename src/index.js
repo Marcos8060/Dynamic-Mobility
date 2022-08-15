@@ -5,17 +5,21 @@ import App from './App';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Survery from './pages/Survery';
 import Response from './pages/Response';
+import { Provider } from 'react-redux/es/exports';
+import { store } from './redux/store';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Router>
-      <Routes>
-        <Route exact path="/" element={<App />}></Route>
-        <Route exact path="/survey" element={<Survery />}></Route>
-        <Route exact path="/response" element={<Response />}></Route>
-      </Routes>
+      <Provider store={store}>
+        <Routes>
+          <Route exact path="/" element={<App />}></Route>
+          <Route exact path="/survey" element={<Survery />}></Route>
+          <Route exact path="/response" element={<Response />}></Route>
+        </Routes>
+      </Provider>
     </Router>
   </React.StrictMode>
 );

@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import image from '../images/farm.jpg'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { getData } from '../redux/features/data'
 
 const Home = () => {
+const dispatch = useDispatch();
+
+  useEffect(() =>{
+    dispatch(getData())
+  },[])
+
   return (
     <>
     <HeroWrapper>
