@@ -12,7 +12,7 @@ const Home = () => {
                 <p className='text-white uppercase underline mb-10 font-semibold font-press-start'>Welcome to our online survey</p>
                 <h1 className='text-white md:text-7xl text-4xl font-semibold font-press-start'>Agriculture <br /> Organic Products</h1>
                 <div className="mt-10">
-                  <Link to='/survey'>
+                  <Link to='/step1'>
                     <button className='bg-brown p-4 rounded m-2 uppercase  text-green font-press-start'>Take survey</button>
                   </Link>
                   <Link to='/response'>
