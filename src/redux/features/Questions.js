@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
+
 const initialState ={
     question1: 'what is your name',
     question2: 'What is your age',

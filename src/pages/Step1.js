@@ -1,46 +1,41 @@
-import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { getData } from '../redux/features/data';
-import { useSelector } from 'react-redux/es/exports';
-import  chooseQuestion1 from '../redux/features/Questions';
-import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom'
+import React,{useState} from 'react'
 
-const Step1 = () => {
-  const dispatch  = useDispatch();
-  const history = useNavigate();
+const Step1 = ({ nextStep,handleFormData,values}) => {
 
-  const data = useSelector((store) => store.data.data)
+  const [error, setError] = useState(false);
 
-  const question1 = useSelector((store) => store.question1)
+  const submitFormData = (e) =>{
+    e.preventDefault();
 
-  const { register,handleSubmit } = useForm({ defaultValues: { question1}})
+    if(values.question1 === ''){
+      setError(true);
+    }else{
+      nextStep()
+    }
 
-  console.log('hello',data);
-
-
-  useEffect(() =>{
-    dispatch(getData())
-  },[])
-
-  const onSubmit =(info)=>{
-    dispatch(chooseQuestion1(data.question1))
-    history('/step2')
   }
 
   return (
     <>
-      <div className='bg-gray h-100v py-20'>
-        <div className="bg-white shadow-2xl rounded p-4 md:w-8/12 w-11/12 mx-auto p-10">
-          <h2 className='font-semibold mb-20'>{data.strings.en.q_farmer_name}</h2>
+     <div className="bg-white shadow-2xl rounded p-4 md:w-8/12 w-11/12 mx-auto p-10 mt-20">
 
-           <form onSubmit={handleSubmit(onSubmit)}>
-              <input id='question1' name='question1' ref={register} className='p-2 focus:outline-none bg-gray w-7/12' type="text" placeholder='Enter your answer...' /><br /> <br />
-              <button className='block float-right bg-blue px-4 py-1 font-semibold rounded text-white font-normal'>Next</button>
-           </form>
+      <h2 className='font-semibold mb-20'>What is the name of the farmer?</h2>
+      <form onSubmit={submitFormData}>
 
-        </div> 
-      </div>
+        <input id='question1' name='question1' defaultValue={values.question1} onChange={handleFormData("question1")} className='p-2 focus:outline-none bg-gray w-7/12' type="text" placeholder='Enter your name...' />
+        {
+          error ? (
+            <p className='text-sm text-red font-press-start'>This is a required field!</p>
+          ):(
+            ''
+          )
+        }
+        <br /><br />
+        <button className='block float-right bg-blue px-4 py-1 font-semibold rounded text-white font-normal'>Next</button>
+
+      </form>
+
+    </div> 
     </>
   )
 }
