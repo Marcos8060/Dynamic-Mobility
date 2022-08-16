@@ -1,7 +1,6 @@
 import React, { useEffect, useState} from 'react'
 import { useDispatch } from 'react-redux'
 import { getData } from '../redux/features/data';
-import { useSelector } from 'react-redux';
 import Step1 from './Step1';
 import Step2 from './Step2';
 import Step3 from './Step3';

@@ -1,8 +1,11 @@
 import React,{useState} from 'react'
+import { useSelector } from 'react-redux';
 
 const Step1 = ({ nextStep,handleFormData,values}) => {
 
   const [error, setError] = useState(false);
+  const data = useSelector((store) => store.data);
+  console.log('hello',data);
 
   const submitFormData = (e) =>{
     e.preventDefault();

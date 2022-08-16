@@ -1,23 +1,15 @@
-import React, { useEffect,useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { getData } from '../redux/features/data';
 import { saveResponse } from '../redux/features/Response';
 import { useNavigate } from 'react-router-dom';
 
 
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Step3 = ({ handleFormData, prevStep, values, nextStep}) => {
   const dispatch  = useDispatch();
   const history = useNavigate();
-  const [error,setError] = useState(false)
-
-  // error state
-
-  // const data = useSelector((store) => store.data.data)
-
-  // console.log('hello',data);
 
 
   useEffect(() =>{
@@ -46,21 +38,14 @@ const Step3 = ({ handleFormData, prevStep, values, nextStep}) => {
   return (
     <>
       <div className='bg-gray h-100v py-20'>
-        <ToastContainer />
         <div className="bg-white shadow-2xl rounded p-4 md:w-8/12 w-11/12 mx-auto p-10">
         
-            <h2 className='font-semibold mb-20'>What is the size of the farm?</h2>
+            <h2 className='font-semibold mb-20'>What is the size of the farm in hectares?</h2>
 
            <form onSubmit={submitFormData}>
               <input  defaultValue={values.question3} onChange={handleFormData("question3")} id='question3' name='question3' className='p-2 focus:outline-none bg-gray w-7/12' type="text" placeholder='size of your farm...' />
               <br /> <br />
-              {
-                  error ? (
-                    <p className='text-sm text-red font-press-start'>This is a required field!</p>
-                     ):(
-                     ''
-                   )
-                }
+              
               <button type="submit" className='block float-right bg-blue px-4 py-1 font-semibold rounded text-white font-normal'>Finish</button>
               <button onClick={prevStep} className='mx-2 block float-right bg-blue px-4 py-1 font-semibold rounded text-white font-normal'>Previous</button>
            </form>

@@ -42,7 +42,7 @@ const Response = () => {
             </TableRow>
           </TableHead>
           {responses.responses.map((response) =>(
-            <TableBody>
+            <TableBody key={response.id}>
             <TableRow>
               <TableCell component="th" scope="row">
                 {response.id}
