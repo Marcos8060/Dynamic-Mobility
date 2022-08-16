@@ -26,9 +26,9 @@ const Step2 = ({ nextStep, handleFormData, prevStep, values}) => {
     <>
       <div className='bg-gray h-100v py-20'>
         <div className="bg-white shadow-2xl rounded p-4 md:w-8/12 w-11/12 mx-auto p-10">
-        <h1 className='font-semibold bg-blue text-white w-1/12 rounded pl-1 mb-2'>Step 2/3</h1>
+        <h1 className='font-thin font-press-start bg-blue text-white w-1/12 rounded pl-1 mb-2'>Step 2/3</h1>
 
-            <h2 className='font-semibold mb-20'>What is the gender of the farmer?</h2>
+            <h2 className='font-semibold mb-10 text-2xl font-press-start'>What is the gender of the farmer?</h2>
 
            <form onSubmit={submitFormData}>
               <select className=" mb-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:ring-blue-400 focus:border-blue-500 block w-7/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="question2" id="question2" defaultValue={values.question2} onChange={handleFormData("question2")}>

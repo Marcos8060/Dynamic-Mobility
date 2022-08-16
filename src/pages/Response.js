@@ -56,7 +56,7 @@ const Response = () => {
         </Table>
       </TableContainer>
       <Link to='/survey'>
-        <button className='bg-blue text-white p-2 mt-2 rounded'>Return to Survey</button>
+        <button className='bg-blue text-white p-2 mt-2 mb-10 rounded'>Return to Survey</button>
       </Link>
       
     </div>
