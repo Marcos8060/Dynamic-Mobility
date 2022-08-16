@@ -9,7 +9,9 @@ const responseSlice = createSlice({
     name: 'response',
     initialState,
     reducers:{
-        saveResponse: (state,action)=> action.payload
+        saveResponse: (state,action)=> {
+            state.responses = state.responses.push({...action.payload})
+        }
     }
 })
 

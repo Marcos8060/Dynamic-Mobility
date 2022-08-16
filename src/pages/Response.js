@@ -7,6 +7,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 
 const useStyles = makeStyles({
   table: {
@@ -14,19 +17,11 @@ const useStyles = makeStyles({
   },
 });
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-];
-
-
 const Response = () => {
   const classes = useStyles();
+
+  const responses = useSelector((store) => store)
+  console.log(responses.question2)
 
   return (
     <>
@@ -39,25 +34,26 @@ const Response = () => {
           <TableHead>
             <TableRow>
               <TableCell>Survey Id</TableCell>
-              <TableCell align="right">Question one</TableCell>
-              <TableCell align="right">Question Two</TableCell>
-              <TableCell align="right">Question Three</TableCell>
+              <TableCell align="right">What is the Name of the Farmer</TableCell>
+              <TableCell align="right">What is the gender of the farmer</TableCell>
+              <TableCell align="right">What is the size of the farm in hectares</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
-              <TableRow key={row.name}>
+              <TableRow>
                 <TableCell component="th" scope="row">
                   29
                 </TableCell>
-                <TableCell align="right">Hello my name</TableCell>
-                <TableCell align="right">Second Question</TableCell>
-                <TableCell align="right">Third Question</TableCell>
+                <TableCell align="center">{responses.question1}</TableCell>
+                <TableCell align="center">{responses.question2}</TableCell>
+                <TableCell align="center">{responses.question3}</TableCell>
               </TableRow>
-            ))}
           </TableBody>
         </Table>
       </TableContainer>
+      <Link to='/survey'>
+        <button className='bg-blue text-white p-2 mt-2 rounded'>Return to Survey</button>
+      </Link>
     </div>
     </div>
     </>
