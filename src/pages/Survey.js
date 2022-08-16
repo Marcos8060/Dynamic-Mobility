@@ -1,11 +1,11 @@
-import React, { useEffect ,useContext, useState} from 'react'
+import React, { useEffect, useState} from 'react'
 import { useDispatch } from 'react-redux'
 import { getData } from '../redux/features/data';
 import { useSelector } from 'react-redux';
-import { Stepper,StepLabel, Step } from '@material-ui/core'
 import Step1 from './Step1';
 import Step2 from './Step2';
 import Step3 from './Step3';
+import Response from './Response';
 
 const Survey = () => {
   const [step,setStep] = useState(1)
@@ -56,7 +56,9 @@ const Survey = () => {
       case 2:
         return <Step2 nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData} values={formData}/>
       case 3:
-        return <Step3 values={formData} prevStep={prevStep} handleFormData={handleInputData}/> 
+        return <Step3 values={formData} nextStep={nextStep} prevStep={prevStep} handleFormData={handleInputData}/> 
+      case 4:
+        return <Response values={formData}/> 
       default:
         return <Step1 />
     }

@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { getData } from '../redux/features/data';
 import { useSelector } from 'react-redux';
+import { saveResponse } from '../redux/features/Response';
 
-const Step3 = ({ handleFormData, prevStep, values}) => {
+const Step3 = ({ handleFormData, prevStep, values, nextStep}) => {
   const dispatch  = useDispatch();
 
   // error state
-  const [error,setError] = useState(false)
 
   const data = useSelector((store) => store.data.data)
 
@@ -21,11 +21,17 @@ const Step3 = ({ handleFormData, prevStep, values}) => {
   const submitFormData = (e) =>{
     e.preventDefault();
 
-    if(values.question3 === ''){
-      setError(true);
-    }else{
-      handleFormData();
-    }
+      
+      const newData ={
+        // generate random id
+        id:Math.floor(Math.random() * 100),
+        question1: values.question1,
+        question2: values.question2,
+        question3: values.question3,
+      }
+
+      console.log(newData)
+      dispatch(saveResponse(newData))
   }
 
  
@@ -39,13 +45,6 @@ const Step3 = ({ handleFormData, prevStep, values}) => {
 
            <form onSubmit={submitFormData}>
               <input  defaultValue={values.question3} onChange={handleFormData("question3")} id='question3' name='question3' className='p-2 focus:outline-none bg-gray w-7/12' type="text" placeholder='size of your farm...' />
-                {
-                  error ? (
-                    <p className='text-sm text-red font-press-start'>This is a required field!</p>
-                     ):(
-                     ''
-                   )
-                }
               <br /> <br />
               <button type="submit" className='block float-right bg-blue px-4 py-1 font-semibold rounded text-white font-normal'>Finish</button>
               <button onClick={prevStep} className='mx-2 block float-right bg-blue px-4 py-1 font-semibold rounded text-white font-normal'>Previous</button>
