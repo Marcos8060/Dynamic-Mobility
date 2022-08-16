@@ -10,7 +10,8 @@ const responseSlice = createSlice({
     initialState,
     reducers:{
         saveResponse: (state,action)=> {
-            state.responses = state.responses.push({...action.payload})
+            const response = action.payload;
+            state.responses = [...state.responses, response]
         }
     }
 })

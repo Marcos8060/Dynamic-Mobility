@@ -21,7 +21,9 @@ const Response = () => {
   const classes = useStyles();
 
   const responses = useSelector((store) => store)
-  console.log(responses.question2)
+  console.log(responses)
+
+  
 
   return (
     <>
@@ -39,21 +41,24 @@ const Response = () => {
               <TableCell align="right">What is the size of the farm in hectares</TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
-              <TableRow>
-                <TableCell component="th" scope="row">
-                  29
-                </TableCell>
-                <TableCell align="center">{responses.question1}</TableCell>
-                <TableCell align="center">{responses.question2}</TableCell>
-                <TableCell align="center">{responses.question3}</TableCell>
-              </TableRow>
-          </TableBody>
+          {responses.responses.map((response) =>(
+            <TableBody>
+            <TableRow>
+              <TableCell component="th" scope="row">
+                {response.id}
+              </TableCell>
+              <TableCell align="center">{response.question1}</TableCell>
+              <TableCell align="center">{response.question2}</TableCell>
+              <TableCell align="center">{response.question3}(ha)</TableCell>
+            </TableRow>
+        </TableBody>
+          ))}
         </Table>
       </TableContainer>
       <Link to='/survey'>
         <button className='bg-blue text-white p-2 mt-2 rounded'>Return to Survey</button>
       </Link>
+      
     </div>
     </div>
     </>

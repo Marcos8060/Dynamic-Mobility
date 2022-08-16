@@ -36,7 +36,7 @@ const Step2 = ({ nextStep, handleFormData, prevStep, values}) => {
 
            <form onSubmit={submitFormData}>
               <select className=" mb-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:ring-blue-400 focus:border-blue-500 block w-7/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="question2" id="question2" defaultValue={values.question2} onChange={handleFormData("question2")}>
-                <option selected>--Select gender--</option>
+                <option defaultValue>--Select gender--</option>
                 <option value='male'>Male</option>
                 <option value='female'>Female</option>
                 <option value='other'>Other</option>
