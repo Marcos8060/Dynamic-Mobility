@@ -5,8 +5,6 @@ import { saveResponse } from '../redux/features/Response';
 import { useNavigate } from 'react-router-dom';
 
 
-import 'react-toastify/dist/ReactToastify.css';
-
 const Step3 = ({ handleFormData, prevStep, values, nextStep}) => {
   const dispatch  = useDispatch();
   const history = useNavigate();
