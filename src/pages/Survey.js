@@ -11,7 +11,7 @@ const Survey = () => {
   const [step,setStep] = useState(1)
   const dispatch  = useDispatch();
 
-  const data = useSelector(store => store.data.data)
+  // const data = useSelector(store => store.data.data)
 
     //state for form data
     const [formData, setFormData] = useState({
@@ -25,7 +25,7 @@ const Survey = () => {
     },[])
 
 
-  console.log('hello',data);
+  // console.log('hello',data);
 
   // next step
   const nextStep=()=>{

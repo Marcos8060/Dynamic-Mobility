@@ -8,9 +8,9 @@ const Step2 = ({ nextStep, handleFormData, prevStep, values}) => {
 
   const dispatch  = useDispatch();
 
-  const data = useSelector((store) => store.data.data)
+  // const data = useSelector((store) => store.data.data)
 
-  console.log('hello',data);
+  // console.log('hello',data);
 
 
   useEffect(() =>{

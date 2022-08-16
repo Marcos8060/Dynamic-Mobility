@@ -9,9 +9,9 @@ const Step3 = ({ handleFormData, prevStep, values, nextStep}) => {
 
   // error state
 
-  const data = useSelector((store) => store.data.data)
+  // const data = useSelector((store) => store.data.data)
 
-  console.log('hello',data);
+  // console.log('hello',data);
 
 
   useEffect(() =>{
