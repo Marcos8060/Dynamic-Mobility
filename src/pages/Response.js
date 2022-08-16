@@ -35,10 +35,10 @@ const Response = () => {
           <caption>A basic table example with a caption</caption>
           <TableHead>
             <TableRow>
-              <TableCell>Survey Id</TableCell>
-              <TableCell align="right">What is the Name of the Farmer</TableCell>
-              <TableCell align="right">What is the gender of the farmer</TableCell>
-              <TableCell align="right">What is the size of the farm in hectares</TableCell>
+              <TableCell className='uppercase'>Survey Id</TableCell>
+              <TableCell align="right" className='uppercase'>What is the Name of the Farmer</TableCell>
+              <TableCell align="right" className='uppercase'>What is the gender of the farmer</TableCell>
+              <TableCell align="right" className='uppercase'>What is the size of the farm in hectares</TableCell>
             </TableRow>
           </TableHead>
           {responses.responses.map((response) =>(
